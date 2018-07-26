@@ -5,7 +5,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      boardList: ["board1", "board2"]
+      boardList: []
     };
   }
 
@@ -15,8 +15,10 @@ class App extends Component {
     const newBoard = this.newBoard.value;
 
     this.setState({
-      boardList: [...this.state.boardList, newBoard]
+      boardList: [...boardList, newBoard]
     });
+
+    this.addForm.reset();
   }
 
   render() {
@@ -27,6 +29,7 @@ class App extends Component {
           <h1>Board list</h1>
         </header>
         <form
+          ref={form => (this.addForm = form)}
           className="form-inline"
           onSubmit={e => {
             this.addBoard(e);
