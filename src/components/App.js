@@ -5,18 +5,18 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      boardList: ["board1", "board2"]
+      boardList: []
     };
   }
 
   addBoard(e) {
     e.preventDefault();
+
     const { boardList } = this.state;
     const newBoard = this.newBoard.value;
 
-    this.setState({
-      boardList: [...this.state.boardList, newBoard]
-    });
+    this.setState(
+      {boardList: [...boardList, newBoard]});
   }
 
   render() {
