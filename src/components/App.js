@@ -5,22 +5,31 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      boardList: []
+      items: [], 
+      text: ''
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  addBoard(e) {
+  handleChange(e) {
+    this.setState({text: e.target.value});
+  }
+
+  handleSubmit(e) {
     e.preventDefault();
-
-    const { boardList } = this.state;
-    const newBoard = this.newBoard.value;
-
-    this.setState(
-      {boardList: [...boardList, newBoard]});
+    var newItem = {
+      text: this.state.text,
+      id: Date.now()
+    };
+    this.setState((prevState) => ({
+      items: prevState.items.concat(newItem),
+      text: ''
+    }));
   }
 
   render() {
-    const { boardList } = this.state;
+    const { items } = this.state;
     return (
       <div>
         <header>
@@ -28,15 +37,13 @@ class App extends Component {
         </header>
         <form
           className="form-inline"
-          onSubmit={e => {
-            this.addBoard(e);
-          }}
-        >
+          onSubmit={this.handleSubmit} value={this.state.text}>
           <div className="form-group">
             <label className="sr-only" htmlFor="newBoardInput">
               Add New Board
             </label>
             <input
+              onChange={this.handleChange} value={this.state.text}
               ref={input => (this.newBoard = input)}
               className="form-control"
               id="newBoardInput"
@@ -48,10 +55,13 @@ class App extends Component {
             </button>
           </div>
         </form>
-        {boardList.map(board => {
+        {/* {this.props.items.map(item => (
+          <li key={item.id}>{item.text}</li>
+        ))} */}
+        {items.map(item => {
           return (
-            <div className="Board" key={board}>
-              {board}
+            <div className="Board" key={item.id}>
+              {item.text}
             </div>
           );
         })}
