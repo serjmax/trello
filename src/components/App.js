@@ -18,14 +18,16 @@ class App extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    var newItem = {
-      text: this.state.text,
-      id: Date.now()
-    };
-    this.setState((prevState) => ({
-      items: prevState.items.concat(newItem),
-      text: ''
-    }));
+    if (this.state.text !== ''){
+      var newItem = {
+        text: this.state.text,
+        id: Date.now()
+      };
+      this.setState({
+        items: [...this.state.items, newItem],
+        text: ''
+      });
+    }
   }
 
   render() {
