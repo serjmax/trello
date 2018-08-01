@@ -7,9 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      boards: [
-        {title: 'My first board', id: Date.now()}
-      ],
+      boards: [{ title: "My first board", id: Date.now() }],
       inputValue: ""
     };
     this.handleChange = this.handleChange.bind(this);
@@ -24,13 +22,13 @@ class App extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.state.text !== "") {
-      var newItem = {
-        text: this.state.text,
+    if (this.state.inputValue !== "") {
+      var newBoard = {
+        title: this.state.inputValue,
         id: Date.now()
       };
       this.setState({
-        items: [...this.state.items, newItem],
+        boards: [...this.state.boards, newBoard],
         inputValue: ""
       });
     }
@@ -45,8 +43,7 @@ class App extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
-        <Boards 
-        boards={this.state.boards}/>
+        <Boards boards={this.state.boards} />
       </div>
     );
   }

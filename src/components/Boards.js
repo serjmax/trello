@@ -4,20 +4,10 @@ import Board from "./Board";
 class Boards extends Component {
   render() {
     return (
-      <div>
+      <div className="Boards">
         {this.props.boards.map(board => {
-          return (
-            <Board 
-              board={board}
-            />);
+          return <Board board={board} key={board.id} />;
         })}
-        {/* {items.map(item => {
-          return (
-            <div className="Board" key={item.id}>
-              {item.text}
-            </div>
-          );
-        })} */}
       </div>
     );
   }
