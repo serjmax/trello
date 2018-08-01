@@ -1,10 +1,16 @@
 import React, { Component } from "react";
+import Board from "./Board";
 
 class Boards extends Component {
   render() {
     return (
       <div>
-        Boards
+        {this.props.boards.map(board => {
+          return (
+            <Board 
+              board={board}
+            />);
+        })}
         {/* {items.map(item => {
           return (
             <div className="Board" key={item.id}>

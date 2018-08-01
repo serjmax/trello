@@ -7,7 +7,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [],
+      boards: [
+        {title: 'My first board', id: Date.now()}
+      ],
       inputValue: ""
     };
     this.handleChange = this.handleChange.bind(this);
@@ -35,15 +37,16 @@ class App extends Component {
   }
 
   render() {
-    const { items } = this.state;
+    // const { items } = this.state;
     return (
       <div className="App">
-        <Form 
+        <Form
           inputValue={this.state.inputValue}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
-        <Boards />
+        <Boards 
+        boards={this.state.boards}/>
       </div>
     );
   }
