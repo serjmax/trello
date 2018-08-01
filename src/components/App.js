@@ -8,7 +8,7 @@ class App extends Component {
     super(props);
     this.state = {
       items: [],
-      text: ""
+      inputValue: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,7 +16,7 @@ class App extends Component {
 
   handleChange(e) {
     this.setState({
-      text: e.target.value
+      inputValue: e.target.value
     });
   }
 
@@ -29,7 +29,7 @@ class App extends Component {
       };
       this.setState({
         items: [...this.state.items, newItem],
-        text: ""
+        inputValue: ""
       });
     }
   }
@@ -37,42 +37,13 @@ class App extends Component {
   render() {
     const { items } = this.state;
     return (
-      <div>
-        <header>
-          <h1> Board list </h1>
-        </header>
-        <form
-          className="form-inline"
-          onSubmit={this.handleSubmit}
-          value={this.state.text}
-        >
-          <div className="form-group">
-            <label className="sr-only" htmlFor="newBoardInput">
-              Add New Board
-            </label>
-            <input
-              onChange={this.handleChange}
-              value={this.state.text}
-              ref={input => (this.newBoard = input)}
-              className="form-control"
-              id="newBoardInput"
-              placeholder="My favorite staff"
-              type="text"
-            />
-            <button type="submit" className="btn btn-primary">
-              Add
-            </button>
-          </div>
-        </form>
+      <div className="App">
+        <Form 
+          inputValue={this.state.inputValue}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
         <Boards />
-        {items.map(item => {
-          return (
-            <div className="Board" key={item.id}>
-              
-              {item.text}
-            </div>
-          );
-        })}
       </div>
     );
   }

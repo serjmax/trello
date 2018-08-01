@@ -1,9 +1,20 @@
 import React, { Component } from "react";
 
-{items.map(item => {
+class Boards extends Component {
+  render() {
+    return (
+      <div>
+        Boards
+        {/* {items.map(item => {
           return (
             <div className="Board" key={item.id}>
               {item.text}
             </div>
           );
-        })}
+        })} */}
+      </div>
+    );
+  }
+}
+
+export default Boards;
