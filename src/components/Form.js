@@ -22,7 +22,7 @@ class Form extends Component {
               ref={input => (this.newBoard = input)}
               className="form-control"
               id="newBoardInput"
-              // placeholder="My favorite staff"
+              placeholder="My favorite staff"
               type="text"
             />
             <button type="submit" className="btn btn-primary">
