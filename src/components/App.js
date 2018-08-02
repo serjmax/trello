@@ -7,20 +7,18 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      boards: [{ title: "My first board", id: Date.now() }],
+      boards: [],
       inputValue: ""
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(e) {
+  handleChange = (e) => {
     this.setState({
       inputValue: e.target.value
     });
   }
 
-  handleSubmit(e) {
+  handleSubmit = (e) => {
     e.preventDefault();
     if (this.state.inputValue !== "") {
       var newBoard = {
