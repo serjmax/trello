@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
-import Form from "../components/Form";
-import Boards from "../components/Boards";
+import Form from "./components/Forms/Form";
+import Boards from "./containers/Boards";
 
 class App extends Component {
   constructor(props) {
