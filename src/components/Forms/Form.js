@@ -15,7 +15,6 @@ class Form extends Component {
             <input
               onChange={this.props.handleChange}
               value={this.props.inputValue}
-              id="newBoardInput"
               placeholder="My favorite staff"
               type="text"
             />
