@@ -1,4 +1,5 @@
 import React, { PureComponent } from "react";
+import TaskList from '../containers/TaskList';
 
 class Board extends PureComponent {
   constructor(props) {
@@ -43,13 +44,7 @@ class Board extends PureComponent {
             <button type="submit">Add</button>
           </div>
         </form>
-        <div className="taskList">
-          {this.state.taskList.map(task => {
-            return (
-              <div key={task.id}>{task.taskValue}</div>
-            )
-          })}
-        </div>
+        <TaskList taskList={this.state.taskList}/>
       </div>
     );
   }
