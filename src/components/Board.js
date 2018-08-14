@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import TaskList from '../containers/TaskList';
+import TaskForm from '../components/Forms/TaskForm'
 
 class Board extends PureComponent {
   constructor(props) {
@@ -32,18 +33,11 @@ class Board extends PureComponent {
     return (
       <div className="Board">
         <div className="title">{this.props.board.title}</div>
-
-        <form onSubmit={e => this.taskSubmit(e)}>
-          <div>
-            <input
-              onChange={e => this.taskChange(e)}
-              value={this.state.taskValue}
-              placeholder="New task"
-              type="text"
-            />
-            <button type="submit">Add</button>
-          </div>
-        </form>
+        <TaskForm 
+          taskValue={this.state.taskValue}
+          taskChange={this.taskChange}
+          taskSubmit={this.taskSubmit}
+        />
         <TaskList taskList={this.state.taskList}/>
       </div>
     );
