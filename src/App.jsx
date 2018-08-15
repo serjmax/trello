@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import Form from "./components/Forms/Form";
+import Form from "./Forms/Form";
 import Boards from "./containers/Boards";
 
 class App extends Component {
@@ -12,13 +12,13 @@ class App extends Component {
     };
   }
 
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({
       inputValue: e.target.value
     });
-  }
+  };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     if (this.state.inputValue !== "") {
       var newBoard = {
@@ -30,10 +30,11 @@ class App extends Component {
         inputValue: ""
       });
     }
-  }
+  };
+
+  
 
   render() {
-    // const { items } = this.state;
     return (
       <div className="App">
         <Form
@@ -41,7 +42,7 @@ class App extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
-        <Boards boards={this.state.boards} />
+        <Boards boards={this.state.boards}/>
       </div>
     );
   }
