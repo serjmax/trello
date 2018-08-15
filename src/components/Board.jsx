@@ -1,6 +1,6 @@
 import React, { PureComponent } from "react";
 import TaskList from '../containers/TaskList';
-import TaskForm from '../components/Forms/TaskForm'
+import TaskForm from '../Forms/TaskForm'
 
 class Board extends PureComponent {
   constructor(props) {
