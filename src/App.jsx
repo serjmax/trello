@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import Form from "./Forms/Form";
 import Boards from "./containers/Boards";
+import BoardService from "./Services/BoardService";
 
 class App extends Component {
   constructor(props) {
@@ -22,17 +23,15 @@ class App extends Component {
     e.preventDefault();
     if (this.state.inputValue !== "") {
       var newBoard = {
-        title: this.state.inputValue,
+        name: this.state.inputValue,
         id: Date.now()
       };
       this.setState({
-        boards: [...this.state.boards, newBoard],
         inputValue: ""
       });
+      BoardService.addBoard(newBoard)
     }
   };
-
-  
 
   render() {
     return (
@@ -42,7 +41,7 @@ class App extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
-        <Boards boards={this.state.boards}/>
+        <Boards boards={this.state.boards} />
       </div>
     );
   }
