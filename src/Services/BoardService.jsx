@@ -12,7 +12,7 @@ class BoardService extends Service {
   }
 
   getBoards() {
-    this.publish(this.state.boards);
+    return this.state
   }
 }
 

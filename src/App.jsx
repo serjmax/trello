@@ -34,6 +34,10 @@ class App extends Component {
     }
   };
 
+  componentDidMount(){
+    
+  }
+
   render() {
     return (
       <div className="App">
@@ -42,6 +46,7 @@ class App extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
+        {/* <Boards boards={this.state.boards} /> */}
         <Boards boards={BoardService.getBoards()} />
       </div>
     );
