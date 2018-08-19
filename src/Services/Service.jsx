@@ -10,7 +10,7 @@ class Service {
 
   subscribe(subscriber) {
     if (!this.subscribers.includes(subscriber)) {
-      this.subscribers = [...subscribers, subscriber];
+      this.subscribers = [...this.subscribers, subscriber];
     }
   }
 
@@ -19,3 +19,5 @@ class Service {
     this.publish(state);
   }
 }
+
+export default Service;

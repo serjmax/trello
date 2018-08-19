@@ -8,13 +8,12 @@ class BoardService extends Service {
       name,
       id
     };
-    this.setState([...state, newState]);
+    this.setState([...this.state, newState]);
   }
 
-  getBoards(){
-    
+  getBoards() {
+    this.publish(this.state.boards);
   }
-
 }
 
 export default new BoardService();

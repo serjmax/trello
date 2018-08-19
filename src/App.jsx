@@ -30,6 +30,7 @@ class App extends Component {
         inputValue: ""
       });
       BoardService.addBoard(newBoard)
+      this.forceUpdate()
     }
   };
 
@@ -41,7 +42,7 @@ class App extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
-        <Boards boards={this.state.boards} />
+        <Boards boards={BoardService.getBoards()} />
       </div>
     );
   }
