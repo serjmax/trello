@@ -29,14 +29,9 @@ class App extends Component {
       this.setState({
         inputValue: ""
       });
-      BoardService.addBoard(newBoard)
-      this.forceUpdate()
+      BoardService.addBoard(newBoard);
     }
   };
-
-  componentDidMount(){
-    
-  }
 
   render() {
     return (
