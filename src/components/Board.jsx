@@ -5,7 +5,7 @@ class Board extends PureComponent {
   render() {
     return (
       <div className="Board">
-        <div className="title">{this.props.board.title}</div>
+        <div className="title">{this.props.board.name}</div>
         <TaskList />
       </div>
     );
