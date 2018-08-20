@@ -1,28 +1,27 @@
 import React, { Component } from "react";
 
 class Form extends Component {
-  refreshInput(setState) {
-    this.setState = setState;
-    this.setState({
-      inputValue: ""
-    });
-  }
+  onSubmit = e => {
+    e.preventDefault();
+    this.props.onAdd(this.nameInput.value);
+    this.nameInput.value = "";
+  };
+
   render() {
     return (
       <div className="Form">
         <header>
           <h1> Board list </h1>
         </header>
-        <form onSubmit={e => this.props.handleSubmit(e)}>
+        <form onSubmit={this.onSubmit}>
           <div>
-            <label>Add New Board</label>
+            <label>Add onother list</label>
             <input
-              onChange={this.props.handleChange}
-              value={this.props.inputValue}
-              placeholder="My favorite staff"
+              ref={nameInput => (this.nameInput = nameInput)}
+              placeholder="Enter list title"
               type="text"
             />
-            <button type="submit">Add</button>
+            <button type="submit">Add List</button>
           </div>
         </form>
       </div>
