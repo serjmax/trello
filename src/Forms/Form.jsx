@@ -1,15 +1,19 @@
 import React, { Component } from "react";
 
 class Form extends Component {
+  refreshInput(setState) {
+    this.setState = setState;
+    this.setState({
+      inputValue: ""
+    });
+  }
   render() {
     return (
       <div className="Form">
         <header>
           <h1> Board list </h1>
         </header>
-        <form
-          onSubmit={e => this.props.handleSubmit(e)}
-        >
+        <form onSubmit={e => this.props.handleSubmit(e)}>
           <div>
             <label>Add New Board</label>
             <input
@@ -18,9 +22,7 @@ class Form extends Component {
               placeholder="My favorite staff"
               type="text"
             />
-            <button type="submit">
-              Add
-            </button>
+            <button type="submit">Add</button>
           </div>
         </form>
       </div>
