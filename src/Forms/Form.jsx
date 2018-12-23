@@ -11,12 +11,14 @@ class Form extends Component {
     return (
       <div className="Form">
         <header>
-          <h1> Board list </h1>
+          <h1> Board</h1>
         </header>
         <form onSubmit={this.onSubmit}>
           <div>
-            <label>Add onother list</label>
+            <label>Add list</label>
+            {/* //TODO: Почему здесь инпут так сделан? Почему не более классический вид с функцией onChange? */}
             <input
+              //TODO: Не понимаю что означает строка ниже:
               ref={nameInput => (this.nameInput = nameInput)}
               placeholder="Enter list title"
               type="text"

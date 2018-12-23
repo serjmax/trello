@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import Task from "../components/Task";
 import TaskForm from "../Forms/TaskForm";
 
-class TaskList extends Component {
+class Tasks extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      taskList: [],
+      tasks: [],
       taskValue: ""
     };
   }
@@ -23,7 +23,7 @@ class TaskList extends Component {
       id: Date.now()
     };
     this.setState({
-      taskList: [...this.state.taskList, newTask],
+      tasks: [...this.state.tasks, newTask],
       taskValue: ""
     });
   };
@@ -37,7 +37,7 @@ class TaskList extends Component {
           taskSubmit={this.taskSubmit}
         />
         <div className="TaskList">
-          {this.state.taskList.map(task => {
+          {this.state.tasks.map(task => {
             return <Task key={task.id} task={task} />;
           })}
         </div>
@@ -46,4 +46,4 @@ class TaskList extends Component {
   }
 }
 
-export default TaskList;
+export default Tasks;

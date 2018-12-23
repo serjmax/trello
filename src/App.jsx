@@ -1,27 +1,25 @@
 import React, { Component } from "react";
 import "./App.css";
 import Form from "./Forms/Form";
-import Boards from "./containers/Boards";
-import BoardService from "./Services/BoardService";
+import Lists from "./containers/Lists";
+import ListService from "./Services/ListService";
 
 class App extends Component {
-
   onAdd = name => {
-    var newBoard = {
+    var newList = {
       name: name,
       id: Date.now()
     };
-    BoardService.addBoard(newBoard);
+    ListService.addList(newList);
+    //TODO: Как работает строка ниже? Почему без неё не работает?
     this.forceUpdate();
   };
 
   render() {
     return (
       <div className="App">
-        <Form
-          onAdd={this.onAdd}
-        />
-        <Boards boards={BoardService.getBoards()} />
+        <Form onAdd={this.onAdd} />
+        <Lists lists={ListService.getLists()} />
       </div>
     );
   }
