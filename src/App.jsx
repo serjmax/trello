@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
+
 import "./App.css";
 import Form from "./Forms/Form";
 import Lists from "./containers/Lists";
@@ -18,6 +20,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <Switch>
+          <Route path="/:id" render={props => <Board />} />
+          <Route
+            exact
+            path="/"
+            render={props => <Boards boards={this.state.boards} />}
+          />
+        </Switch>
         <Form onAdd={this.onAdd} />
         <Lists lists={ListService.getLists()} />
       </div>
