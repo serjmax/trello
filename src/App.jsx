@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Link } from "react-router-dom";
 
 import "./App.css";
 
 import Board from "./components/Board";
+
 import Boards from "./containers/Boards";
 
-import Form from "./Forms/Form";
-import Lists from "./containers/Lists";
-import ListService from "./Services/ListService";
+import AddBoard from "./Forms/AddBoard";
+
+import BoardService from "./Services/BoardService";
 
 class App extends Component {
   state = {
@@ -19,13 +20,12 @@ class App extends Component {
       { id: 3, name: "Доска 3" }
     ]
   };
-
   onAdd = name => {
-    var newList = {
+    var newBoard = {
       name: name,
       id: Date.now()
     };
-    ListService.addList(newList);
+    BoardService.addBoard(newBoard);
     //TODO: Как работает строка ниже? Почему без неё не работает?
     this.forceUpdate();
   };
@@ -34,15 +34,25 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route path="/:id" render={props => <Board />} />
+          <Route path="/:id" render={props => <Board {...props} />} />
           <Route
             exact
             path="/"
             render={props => <Boards boards={this.state.boards} />}
           />
         </Switch>
-        <Form onAdd={this.onAdd} />
-        <Lists lists={ListService.getLists()} />
+        <div>
+          <h1>Список досок</h1>
+          {/* <ul>
+            {this.props.boards.map(board => (
+              <li key={board.id}>
+                <Link to={`/${board.id}`}>{board.name}</Link>
+              </li>
+            ))}
+          </ul> */}
+          <AddBoard onAdd={this.onAdd} />
+          <Boards boards={BoardService.getBoards()} />
+        </div>
       </div>
     );
   }

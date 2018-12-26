@@ -1,4 +1,4 @@
 .lists {
   display: grid;
-  grid-template-columns: 240px;
+  grid-template-columns: auto;
 }

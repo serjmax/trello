@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Form extends Component {
+class AddBoard extends Component {
   onSubmit = e => {
     e.preventDefault();
     this.props.onAdd(this.nameInput.value);
@@ -12,15 +12,15 @@ class Form extends Component {
       <div className="Form">
         <form onSubmit={this.onSubmit}>
           <div>
-            <label>Add list</label>
+            <label>Новая доска</label>
             {/* //TODO: Почему здесь инпут так сделан? Почему не более классический вид с функцией onChange? */}
             <input
               //TODO: Не понимаю что означает строка ниже:
               ref={nameInput => (this.nameInput = nameInput)}
-              placeholder="Enter list title"
+              placeholder="Название доски"
               type="text"
             />
-            <button type="submit">Add List</button>
+            <button type="submit">Создать</button>
           </div>
         </form>
       </div>
@@ -28,4 +28,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default AddBoard;
