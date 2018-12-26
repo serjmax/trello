@@ -29,7 +29,6 @@ class App extends Component {
           />
         </Switch>
         <div>
-          <h1>Список досок</h1>
           {/* <ul>
             {this.props.boards.map(board => (
               <li key={board.id}>
