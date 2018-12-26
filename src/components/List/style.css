@@ -1,0 +1,10 @@
+.list {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 15px #0000001f;
+  padding: 8px;
+
+  &__title {
+    font-size: 20px;
+  }
+}
