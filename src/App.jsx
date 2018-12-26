@@ -7,10 +7,6 @@ import Board from "./components/Board";
 
 import Boards from "./containers/Boards";
 
-import AddBoard from "./Forms/AddBoard";
-
-import BoardService from "./Services/BoardService";
-
 class App extends Component {
   state = {
     inputValue: "",
@@ -19,15 +15,6 @@ class App extends Component {
       { id: 2, name: "Доска 2" },
       { id: 3, name: "Доска 3" }
     ]
-  };
-  onAdd = name => {
-    var newBoard = {
-      name: name,
-      id: Date.now()
-    };
-    BoardService.addBoard(newBoard);
-    //TODO: Как работает строка ниже? Почему без неё не работает?
-    this.forceUpdate();
   };
 
   render() {
@@ -50,8 +37,6 @@ class App extends Component {
               </li>
             ))}
           </ul> */}
-          <AddBoard onAdd={this.onAdd} />
-          <Boards boards={BoardService.getBoards()} />
         </div>
       </div>
     );
