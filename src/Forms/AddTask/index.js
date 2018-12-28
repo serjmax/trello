@@ -1,18 +1,20 @@
 import React, { Component } from "react";
 
-class TaskForm extends Component {
+import "./style.css";
+
+class AddTask extends Component {
   render() {
     return (
-      <div className="TaskForm">
+      <div className="add-task">
         <form onSubmit={this.props.taskSubmit}>
           <div>
             <input
               onChange={this.props.taskChange}
               value={this.props.taskValue}
-              placeholder="New task"
+              placeholder="Новая задача"
               type="text"
             />
-            <button type="submit">Add</button>
+            <button type="submit">Добавить</button>
           </div>
         </form>
       </div>
@@ -20,4 +22,4 @@ class TaskForm extends Component {
   }
 }
 
-export default TaskForm;
+export default AddTask;

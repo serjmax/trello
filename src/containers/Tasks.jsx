@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Task from "../components/Task";
-import TaskForm from "../Forms/TaskForm";
+import AddTask from "../Forms/AddTask";
 
 class Tasks extends Component {
   constructor(props) {
@@ -31,7 +31,7 @@ class Tasks extends Component {
   render() {
     return (
       <div>
-        <TaskForm
+        <AddTask
           taskValue={this.state.taskValue}
           taskChange={this.taskChange}
           taskSubmit={this.taskSubmit}
