@@ -1,7 +1,6 @@
-.lists {}
-
-.lists__list {
+.lists {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
   grid-auto-columns: 240px;
+  grid-column-gap: 8px;
 }
