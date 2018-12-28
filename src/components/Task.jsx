@@ -2,9 +2,11 @@ import React, { Component } from "react";
 
 class Task extends Component {
   render() {
+    const { taskValue } = this.props.task;
+
     return (
       <div className="Task">
-        <div className="taskValue">{this.props.task.taskValue}</div>
+        <div className="taskValue">{taskValue}</div>
       </div>
     );
   }
