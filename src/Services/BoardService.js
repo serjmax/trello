@@ -1,7 +1,7 @@
 import Service from "./Service";
 
 class BoardService extends Service {
-  state = [{ id: 1, name: "Доска 1" }];
+  state = [];
 
   addBoard({ id, name }) {
     const newState = {

@@ -9,12 +9,7 @@ import Boards from "./containers/Boards";
 
 class App extends Component {
   state = {
-    inputValue: "",
-    boards: [
-      { id: 1, name: "Доска 1" },
-      { id: 2, name: "Доска 2" },
-      { id: 3, name: "Доска 3" }
-    ]
+    inputValue: ""
   };
 
   render() {
