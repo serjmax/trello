@@ -4,8 +4,8 @@ import "./style.css";
 
 import List from "../../components/List";
 
-import AddList from "../../Forms/AddList";
 import ListService from "../../Services/ListService";
+import AddList from "../../Forms/AddList";
 
 class Lists extends Component {
   constructor(props) {
@@ -50,14 +50,12 @@ class Lists extends Component {
           listChange={this.listChange}
           listSubmit={this.listSubmit}
         />
-        <div className="lists__list">
-          {/* {ListService.getLists().map(list => (
+        {/* {ListService.getLists().map(list => (
             <List list={list} key={list.id} />
           ))} */}
-          {this.state.lists.map(list => {
-            return <List list={list} key={list.id} />;
-          })}
-        </div>
+        {this.state.lists.map(list => {
+          return <List list={list} key={list.id} />;
+        })}
       </div>
     );
   }
