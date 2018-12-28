@@ -1,24 +1,51 @@
 import React, { Component } from "react";
 
+import "./style.css";
+
 class AddList extends Component {
+  state = {
+    isMenuOpen: true
+  };
+
+  _input: ?HTMLInputElement;
+
+  componentDidUpdate(prevProps, prevState) {
+    this._input.focus();
+  }
+
   // onSubmit = e => {
   //   e.preventDefault();
   //   this.props.onAdd(this.nameInput.value);
   //   this.nameInput.value = "";
   // };
-
+  handleToggleMenu = () => {
+    this.setState({ isMenuOpen: !this.state.isMenuOpen });
+  };
   render() {
     return (
       <div className="add-list">
         <form onSubmit={this.props.listSubmit}>
-          <div>
+          <div
+            onClick={() => this.handleToggleMenu()}
+            className="add-list__open-new-list-form"
+          >
+            <span>&#43;</span> <div>Добавить колонку</div>
+          </div>
+          <div
+            className={
+              "add-list__input-container add-list__input-container_" +
+              (this.state.isMenuOpen ? "hidden" : "show")
+            }
+          >
             <input
               onChange={this.props.listChange}
               value={this.props.listValue}
               placeholder="Название колонки"
               type="text"
+              className="add-list__input"
+              autofocus="true"
+              ref={c => (this._input = c)}
             />
-            <button type="submit">Добавить колонку</button>
           </div>
         </form>
       </div>
