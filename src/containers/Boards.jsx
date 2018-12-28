@@ -25,7 +25,7 @@ class Boards extends Component {
         <AddBoard onAdd={this.onAdd} />
 
         <div className="boards">
-          {/* <ul>
+          <ul>
             {BoardService.getBoards().map(board => (
               <li key={board.id}>
                 <Link to={`/boards/${board.name}`} board={board}>
@@ -33,10 +33,10 @@ class Boards extends Component {
                 </Link>
               </li>
             ))}
-          </ul> */}
-          {BoardService.getBoards().map(board => {
+          </ul>
+          {/* {BoardService.getBoards().map(board => {
             return <Board board={board} key={board.id} />;
-          })}
+          })} */}
         </div>
       </div>
     );
