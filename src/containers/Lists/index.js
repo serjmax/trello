@@ -36,8 +36,6 @@ class Lists extends Component {
   };
 
   handleToggleMenu = () => {
-    console.log("Click");
-
     this.setState({ isMenuOpen: !this.state.isMenuOpen });
   };
 
@@ -52,6 +50,12 @@ class Lists extends Component {
   render() {
     return (
       <div className="lists">
+        {/* {ListService.getLists().map(list => (
+            <List list={list} key={list.id} />
+          ))} */}
+        {this.state.lists.map(list => {
+          return <List list={list} key={list.id} />;
+        })}
         <AddList
           // onAdd={this.onAdd}
           listValue={this.state.listValue}
@@ -60,12 +64,6 @@ class Lists extends Component {
           handleToggleMenu={this.handleToggleMenu}
           isMenuOpen={this.state.isMenuOpen}
         />
-        {/* {ListService.getLists().map(list => (
-            <List list={list} key={list.id} />
-          ))} */}
-        {this.state.lists.map(list => {
-          return <List list={list} key={list.id} />;
-        })}
       </div>
     );
   }
