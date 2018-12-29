@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import "./style.css";
+
 class Task extends Component {
   render() {
     const { taskValue } = this.props.task;

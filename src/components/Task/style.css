@@ -1,0 +1,7 @@
+.task {
+  background: white;
+  padding: 8px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 2px #00000015;
+  font-size: 0.8rem;
+}
