@@ -7,8 +7,8 @@ class Task extends Component {
     const { taskValue } = this.props.task;
 
     return (
-      <div className="Task">
-        <div className="taskValue">{taskValue}</div>
+      <div className="task">
+        <div className="task-value">{taskValue}</div>
       </div>
     );
   }
