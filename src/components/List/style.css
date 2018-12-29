@@ -7,5 +7,8 @@
 }
 
 .list__title {
-  font-size: 20px;
+  font-size: 0.8rem;
+  padding-bottom: 16px;
+  color: #00000070;
+  font-weight: 600;
 }
