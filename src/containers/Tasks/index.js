@@ -21,10 +21,15 @@ class Tasks extends Component {
 
   taskSubmit = e => {
     e.preventDefault();
+
+    if (this.state.taskValue == "") {
+      return null;
+    }
     var newTask = {
       taskValue: this.state.taskValue,
       id: Date.now()
     };
+
     this.setState({
       tasks: [...this.state.tasks, newTask],
       taskValue: ""
