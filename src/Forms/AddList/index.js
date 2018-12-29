@@ -26,7 +26,7 @@ class AddList extends Component {
       <div className="add-list">
         <form onSubmit={this.props.listSubmit}>
           <div
-            onClick={() => this.handleToggleMenu()}
+            onClick={this.props.handleToggleMenu}
             className="add-list__open-new-list-form"
           >
             <span>&#43;</span> <div>Добавить колонку</div>
@@ -34,7 +34,7 @@ class AddList extends Component {
           <div
             className={
               "add-list__input-container add-list__input-container_" +
-              (this.state.isMenuOpen ? "hidden" : "show")
+              (this.props.isMenuOpen ? "hidden" : "show")
             }
           >
             <input

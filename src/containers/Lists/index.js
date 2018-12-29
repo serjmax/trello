@@ -11,6 +11,7 @@ class Lists extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isMenuOpen: true,
       lists: [],
       listValue: ""
     };
@@ -24,13 +25,20 @@ class Lists extends Component {
   listSubmit = e => {
     e.preventDefault();
     var newList = {
-      listValue: this.state.listValue,
+      name: this.state.listValue,
       id: Date.now()
     };
     this.setState({
       lists: [...this.state.lists, newList],
-      listValue: ""
+      listValue: "",
+      isMenuOpen: true
     });
+  };
+
+  handleToggleMenu = () => {
+    console.log("Click");
+
+    this.setState({ isMenuOpen: !this.state.isMenuOpen });
   };
 
   // onAdd = name => {
@@ -49,6 +57,8 @@ class Lists extends Component {
           listValue={this.state.listValue}
           listChange={this.listChange}
           listSubmit={this.listSubmit}
+          handleToggleMenu={this.handleToggleMenu}
+          isMenuOpen={this.state.isMenuOpen}
         />
         {/* {ListService.getLists().map(list => (
             <List list={list} key={list.id} />
