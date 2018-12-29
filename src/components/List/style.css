@@ -11,4 +11,6 @@
   padding-bottom: 16px;
   color: #00000070;
   font-weight: 600;
+  height: 32px;
+  box-sizing: border-box;
 }
