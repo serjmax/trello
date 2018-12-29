@@ -3,10 +3,6 @@ import React, { Component } from "react";
 import "./style.css";
 
 class AddList extends Component {
-  state = {
-    isMenuOpen: true
-  };
-
   _input: ?HTMLInputElement;
 
   componentDidUpdate(prevProps, prevState) {
@@ -18,9 +14,7 @@ class AddList extends Component {
   //   this.props.onAdd(this.nameInput.value);
   //   this.nameInput.value = "";
   // };
-  handleToggleMenu = () => {
-    this.setState({ isMenuOpen: !this.state.isMenuOpen });
-  };
+
   render() {
     return (
       <div className="add-list">
@@ -47,6 +41,13 @@ class AddList extends Component {
               ref={c => (this._input = c)}
             />
           </div>
+          <button
+            className={
+              "add-list__add-button add-list__add-button_" +
+              (this.props.isMenuOpen ? "hidden" : "show")
+            }
+            type="submit"
+          />
         </form>
       </div>
       // <div className="add-list">

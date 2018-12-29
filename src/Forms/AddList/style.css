@@ -50,3 +50,26 @@
   color: #00000040;
   font-family: 'Montserrat', sans-serif;
 }
+
+.add-list__add-button {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  background: none;
+  border: none;
+}
+
+.add-list__add-button_show {
+  display: block;
+}
+
+.add-list__add-button_hidden {
+  display: none;
+}
+
+.add-list__add-button:focus {
+  outline: none;
+}
