@@ -1,6 +1,9 @@
-import React, { Component } from "react";
-import Task from "../components/Task";
-import AddTask from "../Forms/AddTask";
+import React, { Component, Fragment } from "react";
+
+import "./style.css";
+
+import Task from "../../components/Task";
+import AddTask from "../../Forms/AddTask";
 
 class Tasks extends Component {
   constructor(props) {
@@ -30,13 +33,13 @@ class Tasks extends Component {
 
   render() {
     return (
-      <div>
+      <div className="tasks">
         <AddTask
           taskValue={this.state.taskValue}
           taskChange={this.taskChange}
           taskSubmit={this.taskSubmit}
         />
-        <div className="TaskList">
+        <div className="tasks__list">
           {this.state.tasks.map(task => {
             return <Task key={task.id} task={task} />;
           })}
