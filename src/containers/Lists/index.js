@@ -12,7 +12,6 @@ class Lists extends Component {
     super(props);
     this.state = {
       isMenuOpen: true,
-      lists: [],
       listValue: ""
     };
   }
@@ -28,8 +27,8 @@ class Lists extends Component {
       name: this.state.listValue,
       id: Date.now()
     };
+    ListService.addList(newList);
     this.setState({
-      lists: [...this.state.lists, newList],
       listValue: "",
       isMenuOpen: true
     });
@@ -39,25 +38,17 @@ class Lists extends Component {
     this.setState({ isMenuOpen: !this.state.isMenuOpen });
   };
 
-  // onAdd = name => {
-  //   var newList = {
-  //     name: name,
-  //     id: Date.now()
-  //   };
-  //   ListService.addList(newList);
-  //   this.forceUpdate();
-  // };
+  componentDidUpdate = () => {
+    console.log(this.props);
+  };
+
   render() {
     return (
       <div className="lists">
-        {/* {ListService.getLists().map(list => (
-            <List list={list} key={list.id} />
-          ))} */}
-        {this.state.lists.map(list => {
-          return <List list={list} key={list.id} />;
-        })}
+        {ListService.getLists().map(list => (
+          <List list={list} key={list.id} />
+        ))}
         <AddList
-          // onAdd={this.onAdd}
           listValue={this.state.listValue}
           listChange={this.listChange}
           listSubmit={this.listSubmit}
