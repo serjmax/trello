@@ -1,11 +1,14 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 
-import AddBoard from "../Forms/AddBoard";
+import "./style.css";
 
-import BoardService from "../Services/BoardService";
+import AddBoard from "../../Forms/AddBoard";
 
-import Board from "../components/Board";
+import BoardService from "../../Services/BoardService";
+
+import Board from "../../components/Board";
+import NavBar from "../NavBar";
 
 class Boards extends Component {
   onAdd = name => {
@@ -20,11 +23,11 @@ class Boards extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Список досок</h1>
-        <AddBoard onAdd={this.onAdd} />
+      <Fragment>
+        <NavBar />
 
         <div className="boards">
+          <AddBoard onAdd={this.onAdd} />
           <ul>
             {BoardService.getBoards().map(board => (
               <li key={board.id}>
@@ -38,7 +41,7 @@ class Boards extends Component {
             return <Board board={board} key={board.id} />;
           })} */}
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
