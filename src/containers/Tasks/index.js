@@ -10,7 +10,8 @@ class Tasks extends Component {
     super(props);
     this.state = {
       tasks: [],
-      taskValue: ""
+      taskValue: "",
+      isMenuOpen: true
     };
   }
   taskChange = e => {
@@ -32,8 +33,15 @@ class Tasks extends Component {
 
     this.setState({
       tasks: [...this.state.tasks, newTask],
-      taskValue: ""
+      taskValue: "",
+      isMenuOpen: true
     });
+  };
+
+  handleToggleMenu = () => {
+    console.log("menu");
+
+    this.setState({ isMenuOpen: !this.state.isMenuOpen });
   };
 
   render() {
@@ -43,6 +51,8 @@ class Tasks extends Component {
           taskValue={this.state.taskValue}
           taskChange={this.taskChange}
           taskSubmit={this.taskSubmit}
+          handleToggleMenu={this.handleToggleMenu}
+          isMenuOpen={this.state.isMenuOpen}
         />
         <div className="tasks__list">
           {this.state.tasks.map(task => {
