@@ -4,6 +4,8 @@ body {
     background-color: white;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
+    margin: 0;
+    padding: 0;
 }
 
 form {

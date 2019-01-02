@@ -1,20 +1,3 @@
-.Container {
-    background: #AAA1;
-    height: 100%;
-}
-
-.Board {
-    margin: 15px;
-    background-color: white;
-    width: 210px;
-    height: 240px;
-    padding: 15px;
-    position: relative;
-    display: inline-block;
-    border: solid 1px black;
-}
-
-.Board__content {
-    font-size: 15px;
-    text-align: center;
+.App {
+    display: flex;
 }
