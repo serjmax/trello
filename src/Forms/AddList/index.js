@@ -37,7 +37,6 @@ class AddList extends Component {
               placeholder="Название колонки"
               type="text"
               className="add-list__input"
-              autofocus="true"
               ref={c => (this._input = c)}
             />
           </div>

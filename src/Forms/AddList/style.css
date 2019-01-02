@@ -14,10 +14,12 @@
   display: flex;
   box-sizing: border-box;
   cursor: pointer;
+  border: dashed 1px rgb(224, 229, 233);
 }
 
 .add-list__open-new-list-form:hover {
   background-color: rgba(242, 245, 247, 0.7);
+  border: solid 1px rgba(242, 245, 247, 0.7);
 }
 
 .add-list__input-container {
