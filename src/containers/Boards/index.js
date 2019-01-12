@@ -24,10 +24,9 @@ class Boards extends Component {
   render() {
     return (
       <Fragment>
-        <NavBar />
+        <NavBar onAdd={this.onAdd} />
 
         <div className="boards">
-          <AddBoard onAdd={this.onAdd} />
           <ul>
             {BoardService.getBoards().map(board => (
               <li key={board.id}>

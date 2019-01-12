@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import BoardService from "../../Services/BoardService";
 
 import "./style.css";
+import AddBoard from "../../Forms/AddBoard";
 
 class NavBar extends Component {
   render() {
@@ -12,6 +13,7 @@ class NavBar extends Component {
         <Link className="nav-bar__list-title" to="/">
           Мои доски
         </Link>
+        <AddBoard onAdd={this.props.onAdd} />
         <ul className="nav-bar__links-list">
           {BoardService.getBoards().map(board => (
             <li className="nav-bar__links-item" key={board.id}>
