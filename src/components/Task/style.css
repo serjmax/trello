@@ -5,3 +5,7 @@
   box-shadow: 2px 2px 2px #00000015;
   font-size: 0.8rem;
 }
+
+.task:first-child {
+  margin-top: 8px;
+}
