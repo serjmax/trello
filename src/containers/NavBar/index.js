@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import BoardService from "../../Services/BoardService";
 
@@ -7,26 +7,55 @@ import "./style.css";
 import AddBoard from "../../Forms/AddBoard";
 
 class NavBar extends Component {
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     isMenuOpen: true
+  //   };
+  // }
+
+  // handleToggleMenu = () => {
+  //   console.log(this.state.isMenuOpen);
+
+  //   this.setState({ isMenuOpen: !this.state.isMenuOpen });
+  // };
   render() {
     return (
       <div className="nav-bar">
-        <Link className="nav-bar__list-title" to="/">
-          Мои доски
-        </Link>
-        <AddBoard onAdd={this.props.onAdd} />
-        <ul className="nav-bar__links-list">
+        <div className="nav-bar__list-head">
+          <Link className="nav-bar__list-title" to="/">
+            Мои доски
+          </Link>
+          <div
+            onClick={this.props.handleToggleMenu}
+            className="nav-bar__open-new-board-form"
+          >
+            &#43;
+          </div>
+        </div>
+
+        <AddBoard
+          // onAdd={this.props.onAdd}
+          boardValue={this.props.boardValue}
+          boardChange={this.props.boardChange}
+          boardSubmit={this.props.boardSubmit}
+          handleToggleMenu={this.props.handleToggleMenu}
+          isMenuOpen={this.props.isMenuOpen}
+        />
+
+        <div className="nav-bar__links-list">
           {BoardService.getBoards().map(board => (
-            <li className="nav-bar__links-item" key={board.id}>
-              <Link
+            <div className="nav-bar__links-item" key={board.id}>
+              <NavLink
                 className="nav-bar__links-link"
-                to={`/boards/${board.name}`}
+                to={`/${board.name}`}
                 board={board}
               >
                 {board.name}
-              </Link>
-            </li>
+              </NavLink>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     );
   }
