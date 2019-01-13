@@ -4,7 +4,6 @@ import { Route, Switch, Link } from "react-router-dom";
 import "./App.css";
 
 import Board from "./components/Board";
-
 import Boards from "./containers/Boards";
 
 class App extends Component {
@@ -16,12 +15,14 @@ class App extends Component {
     return (
       <div className="App">
         <Switch>
-          <Route path="/:id" render={props => <Board {...props} />} />
-          <Route
+          <Route path="/:id" component={Board} />
+          <Route exact path="/" component={Boards} />
+          {/* <Route path="/:id" render={props => <Board {...props} />} /> */}
+          {/* <Route
             exact
             path="/"
             render={props => <Boards boards={this.state.boards} />}
-          />
+          /> */}
         </Switch>
         <div>
           {/* <ul>
