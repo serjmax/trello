@@ -1,4 +1,4 @@
 .tasks__list {
-  display: grid;
-  grid-row-gap: 8px;
+  display: flex;
+  flex-direction: column-reverse;
 }
