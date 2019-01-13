@@ -38,10 +38,6 @@ class Lists extends Component {
     this.setState({ isMenuOpen: !this.state.isMenuOpen });
   };
 
-  componentDidUpdate = () => {
-    console.log(this.props);
-  };
-
   render() {
     return (
       <div className="lists">
