@@ -3,11 +3,8 @@ import { Link } from "react-router-dom";
 
 import "./style.css";
 
-import AddBoard from "../../Forms/AddBoard";
-
 import BoardService from "../../Services/BoardService";
 
-import Board from "../../components/Board";
 import NavBar from "../NavBar";
 
 class Boards extends Component {
@@ -54,6 +51,7 @@ class Boards extends Component {
   // };
 
   handleToggleMenu = () => {
+    console.log("click");
     this.setState({ isMenuOpen: !this.state.isMenuOpen });
   };
 
@@ -73,15 +71,12 @@ class Boards extends Component {
           <ul>
             {BoardService.getBoards().map(board => (
               <li key={board.id}>
-                <Link to={`/boards/${board.name}`} board={board}>
+                <Link to={`/${board.name}`} board={board}>
                   {board.name}
                 </Link>
               </li>
             ))}
           </ul>
-          {/* {BoardService.getBoards().map(board => {
-            return <Board board={board} key={board.id} />;
-          })} */}
         </div>
       </Fragment>
     );
