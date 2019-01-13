@@ -4,8 +4,13 @@
   border-radius: 3px;
   box-shadow: 2px 2px 2px #00000015;
   font-size: 0.8rem;
+  margin-bottom: 8px;
+}
+
+.task:last-child {
+  margin-top: 8px;
 }
 
 .task:first-child {
-  margin-top: 8px;
+  margin-bottom: 0px;
 }
