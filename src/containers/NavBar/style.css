@@ -34,8 +34,13 @@
   border-radius: 4px;
   text-align: center;
   line-height: 0.9;
-  background: #dcdcdc7a;
+  background: #eaeaea;
   cursor: pointer;
+  transition: 0.1s linear;
+}
+
+.nav-bar__open-new-board-form:hover {
+  background-color: #e2e2e2;
 }
 
 .nav-bar__list-title:hover {
@@ -62,8 +67,9 @@
   display: block;
   padding: 8px;
   height: 32px;
+  transition: 0.1s linear;
 }
 
 .nav-bar__links-link:hover {
-  background-color: gainsboro;
+  background-color: #eaeaea;
 }
