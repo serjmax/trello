@@ -1,0 +1,16 @@
+.list {
+  background-color: rgba(242, 245, 247, 0.7);
+  border-radius: 3px;
+  padding: 8px;
+  grid-row: 1;
+
+}
+
+.list__title {
+  font-size: 0.8rem;
+  padding-bottom: 16px;
+  color: #00000070;
+  font-weight: 600;
+  height: 32px;
+  box-sizing: border-box;
+}

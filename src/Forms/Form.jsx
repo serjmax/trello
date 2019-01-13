@@ -10,9 +10,6 @@ class Form extends Component {
   render() {
     return (
       <div className="Form">
-        <header>
-          <h1> Board</h1>
-        </header>
         <form onSubmit={this.onSubmit}>
           <div>
             <label>Add list</label>

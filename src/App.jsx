@@ -1,25 +1,38 @@
 import React, { Component } from "react";
+import { Route, Switch, Link } from "react-router-dom";
+
 import "./App.css";
-import Form from "./Forms/Form";
-import Lists from "./containers/Lists";
-import ListService from "./Services/ListService";
+
+import Board from "./components/Board";
+import Boards from "./containers/Boards";
 
 class App extends Component {
-  onAdd = name => {
-    var newList = {
-      name: name,
-      id: Date.now()
-    };
-    ListService.addList(newList);
-    //TODO: Как работает строка ниже? Почему без неё не работает?
-    this.forceUpdate();
+  state = {
+    inputValue: ""
   };
 
   render() {
     return (
       <div className="App">
-        <Form onAdd={this.onAdd} />
-        <Lists lists={ListService.getLists()} />
+        <Switch>
+          <Route path="/:id" component={Board} />
+          <Route exact path="/" component={Boards} />
+          {/* <Route path="/:id" render={props => <Board {...props} />} /> */}
+          {/* <Route
+            exact
+            path="/"
+            render={props => <Boards boards={this.state.boards} />}
+          /> */}
+        </Switch>
+        <div>
+          {/* <ul>
+            {this.props.boards.map(board => (
+              <li key={board.id}>
+                <Link to={`/${board.id}`}>{board.name}</Link>
+              </li>
+            ))}
+          </ul> */}
+        </div>
       </div>
     );
   }
