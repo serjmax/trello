@@ -2,8 +2,6 @@ import React, { Component, Fragment } from "react";
 
 import "./style.css";
 
-import Form from "../../Forms/Form";
-
 import Lists from "../../containers/Lists";
 import NavBar from "../../containers/NavBar";
 
