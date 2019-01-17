@@ -4,11 +4,11 @@ import "./style.css";
 
 class Task extends Component {
   render() {
-    const { taskValue } = this.props.task;
+    const { name } = this.props.task;
 
     return (
       <div className="task">
-        <div className="task-value">{taskValue}</div>
+        <div className="task-value">{name}</div>
       </div>
     );
   }

@@ -5,11 +5,12 @@ import "./style.css";
 import Task from "../../components/Task";
 import AddTask from "../../Forms/AddTask";
 
+import TaskService from "../../Services/TaskService";
+
 class Tasks extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: [],
       taskValue: "",
       isMenuOpen: true
     };
@@ -26,21 +27,21 @@ class Tasks extends Component {
     if (this.state.taskValue == "") {
       return null;
     }
+
     var newTask = {
-      taskValue: this.state.taskValue,
+      name: this.state.taskValue,
       id: Date.now()
     };
 
+    TaskService.addTask(newTask);
+
     this.setState({
-      tasks: [...this.state.tasks, newTask],
       taskValue: "",
       isMenuOpen: true
     });
   };
 
   handleToggleMenu = () => {
-    console.log("menu");
-
     this.setState({ isMenuOpen: !this.state.isMenuOpen });
   };
 
@@ -55,7 +56,7 @@ class Tasks extends Component {
           isMenuOpen={this.state.isMenuOpen}
         />
         <div className="tasks__list">
-          {this.state.tasks.map(task => {
+          {TaskService.getTasks().map(task => {
             return <Task key={task.id} task={task} />;
           })}
         </div>

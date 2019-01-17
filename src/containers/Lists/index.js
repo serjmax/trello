@@ -23,11 +23,14 @@ class Lists extends Component {
 
   listSubmit = e => {
     e.preventDefault();
+
     var newList = {
       name: this.state.listValue,
       id: Date.now()
     };
+
     ListService.addList(newList);
+
     this.setState({
       listValue: "",
       isMenuOpen: true
