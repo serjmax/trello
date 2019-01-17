@@ -8,30 +8,13 @@ import BoardService from "../../Services/BoardService";
 import NavBar from "../NavBar";
 
 class Boards extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isMenuOpen: false,
-      boardValue: ""
-    };
-  }
-
-  boardChange = e => {
-    this.setState({ boardValue: e.target.value });
-  };
-
-  boardSubmit = e => {
-    e.preventDefault();
-    var newBoard = {
-      name: this.state.boardValue,
-      id: Date.now()
-    };
-    BoardService.addBoard(newBoard);
-    this.setState({
-      boardValue: "",
-      isMenuOpen: false
-    });
-  };
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     isMenuOpen: false,
+  //     boardValue: ""
+  //   };
+  // }
 
   // onSubmit = e => {
   //   e.preventDefault();
@@ -50,23 +33,9 @@ class Boards extends Component {
   //   this.forceUpdate();
   // };
 
-  handleToggleMenu = () => {
-    console.log("click");
-    this.setState({ isMenuOpen: !this.state.isMenuOpen });
-  };
-
   render() {
     return (
       <Fragment>
-        <NavBar
-          // onAdd={this.onAdd}
-          boardValue={this.state.boardValue}
-          boardChange={this.boardChange}
-          boardSubmit={this.boardSubmit}
-          handleToggleMenu={this.handleToggleMenu}
-          isMenuOpen={this.state.isMenuOpen}
-        />
-
         <div className="boards">
           <ul>
             {BoardService.getBoards().map(board => (

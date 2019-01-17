@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 
 import "./style.css";
 
@@ -18,21 +18,15 @@ class Board extends Component {
   // };
 
   render() {
-    // TODO: Опрокинуть название доски */
-    // const { id } = this.props.match.params;
-
     return (
-      <Fragment>
-        <NavBar />
-        <div className="board">
-          <header>
-            <h1>Доска № {} </h1>
-          </header>
-          {/* <Lists /> */}
-          {/* <Form onAdd={this.onAdd} /> */}
-          <Lists lists={ListService.getLists()} />
-        </div>
-      </Fragment>
+      <div className="board">
+        <header>
+          <h1>Доска № {} </h1>
+        </header>
+        {/* <Lists /> */}
+        {/* <Form onAdd={this.onAdd} /> */}
+        <Lists lists={ListService.getLists()} />
+      </div>
     );
   }
 }
