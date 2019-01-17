@@ -7,18 +7,6 @@ import "./style.css";
 import AddBoard from "../../Forms/AddBoard";
 
 class NavBar extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     isMenuOpen: true
-  //   };
-  // }
-
-  // handleToggleMenu = () => {
-  //   console.log(this.state.isMenuOpen);
-
-  //   this.setState({ isMenuOpen: !this.state.isMenuOpen });
-  // };
   render() {
     return (
       <div className="nav-bar">
@@ -35,7 +23,6 @@ class NavBar extends Component {
         </div>
 
         <AddBoard
-          // onAdd={this.props.onAdd}
           boardValue={this.props.boardValue}
           boardChange={this.props.boardChange}
           boardSubmit={this.props.boardSubmit}

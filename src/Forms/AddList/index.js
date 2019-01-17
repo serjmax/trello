@@ -9,12 +9,6 @@ class AddList extends Component {
     this._input.focus();
   }
 
-  // onSubmit = e => {
-  //   e.preventDefault();
-  //   this.props.onAdd(this.nameInput.value);
-  //   this.nameInput.value = "";
-  // };
-
   render() {
     return (
       <div className="add-list">
@@ -49,18 +43,6 @@ class AddList extends Component {
           />
         </form>
       </div>
-      // <div className="add-list">
-      //   <form onSubmit={this.onSubmit}>
-      //     <div>
-      //       <input
-      //         ref={nameInput => (this.nameInput = nameInput)}
-      //         placeholder="Название колонки"
-      //         type="text"
-      //       />
-      //       <button type="submit">Добавить колонку</button>
-      //     </div>
-      //   </form>
-      // </div>
     );
   }
 }
