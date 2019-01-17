@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 
 import "./App.css";
@@ -21,11 +21,14 @@ class App extends Component {
 
   boardSubmit = e => {
     e.preventDefault();
+
     var newBoard = {
       name: this.state.boardValue,
       id: Date.now()
     };
+
     BoardService.addBoard(newBoard);
+
     this.setState({
       boardValue: "",
       isMenuOpen: false
@@ -40,7 +43,6 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar
-          // onAdd={this.onAdd}
           boardValue={this.state.boardValue}
           boardChange={this.boardChange}
           boardSubmit={this.boardSubmit}
