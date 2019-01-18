@@ -45,6 +45,25 @@ class Tasks extends Component {
     this.setState({ isMenuOpen: !this.state.isMenuOpen });
   };
 
+  // change code below this line
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyPress);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyPress);
+  }
+  // change code above this line
+  handleEnter() {
+    this.handleToggleMenu();
+    this.setState({ taskValue: "" });
+  }
+
+  handleKeyPress = event => {
+    if (event.keyCode === 27) {
+      this.handleEnter();
+    }
+  };
+
   render() {
     return (
       <div className="tasks">
