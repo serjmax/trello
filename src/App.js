@@ -39,6 +39,18 @@ class App extends Component {
     this.setState({ isMenuOpen: !this.state.isMenuOpen });
   };
 
+  handleKeyPress = event => {
+    if (event.keyCode === 27) {
+      this.setState({ boardValue: "", isMenuOpen: false });
+    }
+  };
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyPress);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyPress);
+  }
+
   render() {
     return (
       <div className="App">
