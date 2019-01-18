@@ -41,6 +41,18 @@ class Lists extends Component {
     this.setState({ isMenuOpen: !this.state.isMenuOpen });
   };
 
+  handleKeyPress = event => {
+    if (event.keyCode === 27) {
+      this.setState({ listValue: "", isMenuOpen: true });
+    }
+  };
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyPress);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("keydown", this.handleKeyPress);
+  }
+
   render() {
     return (
       <div className="lists">
