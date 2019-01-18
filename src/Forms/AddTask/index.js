@@ -34,6 +34,13 @@ class AddTask extends Component {
               ref={c => (this._input = c)}
             />
           </div>
+          <button
+            className={
+              "add-task__add-button add-task__add-button_" +
+              (this.props.isMenuOpen ? "hidden" : "show")
+            }
+            type="submit"
+          />
         </form>
       </div>
     );

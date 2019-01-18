@@ -58,3 +58,28 @@
   background-color: rgba(242, 245, 247, 0.7);
   border: solid 1px rgba(242, 245, 247, 0.7);
 }
+
+.add-task__add-button {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+  background: none;
+  border: none;
+}
+
+.add-task__add-button_show {
+  display: block;
+}
+
+.add-task__add-button_hidden {
+  display: none;
+}
+
+.add-list__add-button:focus {
+  outline: none;
+}
