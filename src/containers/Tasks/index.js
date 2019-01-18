@@ -47,8 +47,7 @@ class Tasks extends Component {
 
   handleKeyPress = event => {
     if (event.keyCode === 27) {
-      this.handleToggleMenu();
-      this.setState({ taskValue: "" });
+      this.setState({ taskValue: "", isMenuOpen: true });
     }
   };
   componentDidMount() {
