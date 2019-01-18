@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import "./style.css";
 
 import Lists from "../../containers/Lists";
-import NavBar from "../../containers/NavBar";
 
 import ListService from "../../Services/ListService";
 
@@ -12,7 +11,7 @@ class Board extends Component {
     return (
       <div className="board">
         <header>
-          <h1>Доска № {} </h1>
+          <h1>{this.props.match.params.id}</h1>
         </header>
         <Lists lists={ListService.getLists()} />
       </div>
