@@ -5,8 +5,6 @@ import "./style.css";
 
 import BoardService from "../../Services/BoardService";
 
-import NavBar from "../NavBar";
-
 class Boards extends Component {
   render() {
     return (
