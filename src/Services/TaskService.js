@@ -16,4 +16,4 @@ class TaskService extends Service {
   }
 }
 
-export default new TaskService();
+export default TaskService;

@@ -6,11 +6,11 @@ import Tasks from "../../containers/Tasks";
 
 class List extends PureComponent {
   render() {
-    const { name } = this.props.list;
+    const { name, tasks } = this.props.list;
     return (
       <div className="list">
         <div className="list__title">{name}</div>
-        <Tasks />
+        <Tasks tasks={tasks} />
       </div>
     );
   }

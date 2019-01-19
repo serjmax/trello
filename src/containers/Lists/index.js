@@ -29,7 +29,7 @@ class Lists extends Component {
       id: Date.now()
     };
 
-    ListService.addList(newList);
+    this.props.lists.addList(newList);
 
     this.setState({
       listValue: "",
@@ -56,7 +56,7 @@ class Lists extends Component {
   render() {
     return (
       <div className="lists">
-        {ListService.getLists().map(list => (
+        {this.props.lists.getLists().map(list => (
           <List list={list} key={list.id} />
         ))}
         <AddList

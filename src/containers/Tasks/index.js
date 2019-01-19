@@ -33,7 +33,7 @@ class Tasks extends Component {
       id: Date.now()
     };
 
-    TaskService.addTask(newTask);
+    this.props.tasks.addTask(newTask);
 
     this.setState({
       taskValue: "",
@@ -68,7 +68,7 @@ class Tasks extends Component {
           isMenuOpen={this.state.isMenuOpen}
         />
         <div className="tasks__list">
-          {TaskService.getTasks().map(task => {
+          {this.props.tasks.getTasks().map(task => {
             return <Task key={task.id} task={task} />;
           })}
         </div>

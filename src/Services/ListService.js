@@ -1,4 +1,5 @@
 import Service from "./Service";
+import TaskService from "./TaskService";
 
 class ListService extends Service {
   state = [];
@@ -6,14 +7,15 @@ class ListService extends Service {
   addList({ id, name }) {
     const newState = {
       name,
-      id
+      id,
+      tasks: new TaskService()
     };
     this.setState([...this.state, newState]);
   }
 
   getLists() {
-    return this.state
+    return this.state;
   }
 }
 
-export default new ListService();
+export default ListService;
