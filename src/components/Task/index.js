@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 
+import "./style.css";
+
 class Task extends Component {
   render() {
+    const { name } = this.props.task;
+
     return (
-      <div className="Task">
-        <div className="taskValue">{this.props.task.taskValue}</div>
+      <div className="task">
+        <div className="task-value">{name}</div>
       </div>
     );
   }

@@ -1,4 +1,5 @@
 import Service from "./Service";
+import ListService from "./ListService";
 
 class BoardService extends Service {
   state = [];
@@ -6,13 +7,18 @@ class BoardService extends Service {
   addBoard({ id, name }) {
     const newState = {
       name,
-      id
+      id,
+      lists: new ListService()
     };
     this.setState([...this.state, newState]);
   }
 
   getBoards() {
-    this.publish(this.state.boards);
+    return this.state;
+  }
+
+  getBoardByName(name) {
+    return this.state.find(board => board.name === name);
   }
 }
 
