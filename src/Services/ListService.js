@@ -1,9 +1,9 @@
 import Service from "./Service";
 
-class BoardService extends Service {
+class ListService extends Service {
   state = [];
 
-  addBoard({ id, name }) {
+  addList({ id, name }) {
     const newState = {
       name,
       id
@@ -11,9 +11,9 @@ class BoardService extends Service {
     this.setState([...this.state, newState]);
   }
 
-  getBoards() {
-    this.publish(this.state.boards);
+  getLists() {
+    return this.state
   }
 }
 
-export default new BoardService();
+export default new ListService();
